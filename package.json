@@ -14,5 +14,8 @@
     "node"
   ],
   "author": "marunemo",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
