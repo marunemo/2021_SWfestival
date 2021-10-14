@@ -1,0 +1,18 @@
+{
+  "name": "2021_swfest",
+  "version": "1.0.0",
+  "description": "smart application sector",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@origin-github.com:marunemo/2021_SWfestival.git"
+  },
+  "keywords": [
+    "node"
+  ],
+  "author": "marunemo",
+  "license": "ISC"
+}
