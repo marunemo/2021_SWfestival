@@ -1,3 +1,16 @@
 .menuTable {
-    border: 1px;
+    width: 100%;
+}
+
+.haksikTitle {
+    width: 13%;
+    border: 1px solid;
+    text-align: center;
+    font-size: 12pt;
+}
+
+.haksikList {
+    border: 1px solid;
+    padding: 5px 10px;
+    font-size: 12pt;
 }
