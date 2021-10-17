@@ -1,10 +1,12 @@
 var haksik = [];
 var moms = [];
 
-$.ajax().done((result) => {
-    haksik = result['haksik'];
-    moms = result['moms'];
-    addItems(haksik);
+$.getJSON('./secureKey.json', (secureData) => {
+    $.ajax(secureData.haksikMenu).done((result) => {
+        haksik = result['haksik'];
+        moms = result['moms'];
+        addItems(haksik);
+    });
 });
 
 function addItems(menuList) {
