@@ -10,36 +10,39 @@ const haksikIndex = [
 ]
 var haksik = [];
 var moms = [];
+var lounge = [];
+var grace = [];
 
 $.getJSON('./secureKey.json', (secureData) => {
     $.ajax(secureData.haksikMenu).done((result) => {
         haksik = result['haksik'];
         moms = result['moms'];
-        addItems(haksik);
+        addItems("haksik", haksik);
+        addItems("moms", moms);
     });
 });
 
-function addItems(menuList) {
+function addItems(id, menuList) {
     menuList.forEach((menu, i) => {
-        parseMenu(menu, i);
+        parseMenu(id, menu, i);
     });
 }
 
-function parseMenu(menu, index) {
+function parseMenu(id, menu, index) {
     const menuKor = menu['menu_kor'];
     if (!menuKor.includes('-운영없음-')) {
         const haksikList = menuKor.replace('-원산지: 메뉴게시판 참조-', '').trim();
         if (index < 3)
-            appendMenu(haksikIndex[index], haksikList);
+            appendMenu(id, haksikIndex[index], haksikList);
         else {
             const list = haksikList.split('\n');
             for (const item of list) {
-                appendMenu(haksikIndex[index], item);
+                appendMenu(id, haksikIndex[index], item);
             }
         }
     }
 }
 
-function appendMenu(title, menu) {
-    $(".menuTable").append(`<tr><td class="haksikTitle">${title}</td><td class="haksikList">${menu}</td></tr>`);
+function appendMenu(id, title, menu) {
+    $(`#${id}`).append(`<tr><td class="haksikTitle">${title}</td><td class="haksikList">${menu}</td></tr>`);
 }
