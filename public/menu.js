@@ -26,10 +26,10 @@ function addItems(menuList) {
 }
 
 function parseMenu(menu, index) {
-    const menuKor = menu['menuKor'];
+    const menuKor = menu['menu_kor'];
     if (!menuKor.includes('-운영없음-')) {
         const haksikList = menuKor.replace('-원산지: 메뉴게시판 참조-', '').trim();
-        if (i < 3)
+        if (index < 3)
             appendMenu(haksikIndex[index], haksikList);
         else {
             const list = haksikList.split('\n');
