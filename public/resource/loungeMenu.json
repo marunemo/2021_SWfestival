@@ -1,6 +1,9 @@
 {
     "lounge": {
-        "morning": {},
+        "dailyMeal": true,
+        "morning": {
+            "menu": []
+        },
         "lunch": {
             "menu": [
                 "짜장면",

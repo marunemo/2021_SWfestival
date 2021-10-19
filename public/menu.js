@@ -17,15 +17,25 @@ $.getJSON('./secureKey.json', (secureData) => {
     $.ajax(secureData.haksikMenu).done((result) => {
         haksik = result['haksik'];
         moms = result['moms'];
-        addItems("haksik", haksik);
-        addItems("moms", moms);
+        addItems('haksik', haksik);
+        addItems('moms', moms);
     });
 });
 
+$.getJSON('./resource/loungeMenu.json', menu => addItems('lounge', menu['lounge']))
+$.getJSON('./resource/graceMenu.json', menu => addItems('grace', menu['graceTable']))
+
 function addItems(id, menuList) {
-    menuList.forEach((menu, i) => {
-        parseMenu(id, menu, i);
-    });
+    if(menuList['dailyMeal']) {
+        menuList['morning']['menu'].forEach((menu) => appendMenu(id, '아침', menu));
+        menuList['lunch']['menu'].forEach((menu) => appendMenu(id, '점심', menu));
+        menuList['dinner']['menu'].forEach((menu) => appendMenu(id, '저녁', menu));
+    }
+    else {
+        menuList.forEach((menu, i) => {
+            parseMenu(id, menu, i);
+        });
+    }
 }
 
 function parseMenu(id, menu, index) {

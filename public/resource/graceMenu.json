@@ -1,6 +1,9 @@
 {
     "graceTable": {
-        "morning": {},
+        "dailyMeal": true,
+        "morning": {
+            "menu": []
+        },
         "lunch": {
             "menu": [
                 "시저샐러드",
