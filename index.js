@@ -6,4 +6,4 @@ const app = express();
 app.use(express.static('public'));
 getApiJson();
 
-app.listen(3000, () => console.log('porting on 3000'));
+app.listen(80, () => console.log('porting on http(80)'));
