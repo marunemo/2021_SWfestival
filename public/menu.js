@@ -29,7 +29,7 @@ function addItems(id, restName, menuList) {
 		}
 	}
 	else {
-		menuList['menu'].forEach(menu => appendMenu(id, restName, menuList['menu']));
+		menuList['menu'].forEach(menu => appendMenu(id, restName, menu));
 	}
 }
 
