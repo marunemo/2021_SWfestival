@@ -30,6 +30,7 @@
         }
     },
     "Fry Fry": {
+        "dailyMeal": false,
         "menu": [
             "등심돈까스",
             "더블치즈돈까스",
@@ -37,17 +38,21 @@
         ]
     },
     "Noodle Road": {
+        "dailyMeal": false,
         "menu": null
     },
     "Hao": {
+        "dailyMeal": false,
         "menu": null
     },
     "Grace Garden": {
+        "dailyMeal": false,
         "menu": [
             "야채찜닭/치즈찜닭"
         ]
     },
     "Mix Rice": {
+        "dailyMeal": false,
         "menu": [
             "나가사끼만두짬뽕밥",
             "돌솥비빔밥"
