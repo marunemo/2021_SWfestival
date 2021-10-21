@@ -1,9 +1,9 @@
 import express from 'express';
-import { exportJson } from './api/parsing.js';
+import { getApiJson } from './api/parsing.js';
 
 const app = express();
 
 app.use(express.static('public'));
-exportJson();
+getApiJson();
 
 app.listen(3000, () => console.log('porting on 3000'));

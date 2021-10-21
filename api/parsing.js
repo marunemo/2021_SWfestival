@@ -28,9 +28,12 @@ function fetchMenu(menuUri) {
         let moms = menuData['moms'];
         let kotae = haksik.slice(0, 3);
         haksik = haksik.slice(3, haksik.length);
-        console.log(parseMenu(haksikIndex[0], kotae, true));
-        console.log(parseMenu(haksikIndex.slice(1, 6), haksik));
-        console.log(parseMenu(haksikIndex[6], moms, true));
+
+        const parseKotae = parseMenu(haksikIndex[0], kotae, true);
+        const parseHaksik = parseMenu(haksikIndex.slice(1, 6), haksik);
+        const parseMoms = parseMenu(haksikIndex[6], moms, true);
+        exportJson('hakgwanMenu.json', Object.assign(parseKotae, parseHaksik));
+        exportJson('momsMenu.json', parseMoms);
     });
 }
 
@@ -63,7 +66,11 @@ function parseMenu(id, menuList, isDaily = false) {
     return menuJson;
 }
 
-export function exportJson() {
+function exportJson(fileName, jsonData) {
+    fs.writeFileSync('./public/resource/' + fileName, JSON.stringify(jsonData), 'utf-8');
+}
+
+export function getApiJson() {
     const secureData = JSON.parse(fs.readFileSync('./api/secureKey.json', 'utf-8'));
     fetchMenu(secureData.haksikMenu);
 }
