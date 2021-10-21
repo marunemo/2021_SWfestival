@@ -1,3 +1,7 @@
+import axios from 'axios';
+import fs from 'fs';
+// const fs = require('fs');
+
 const haksikIndex = [
     'Korean Table',
     'Fry Fry',
@@ -7,24 +11,28 @@ const haksikIndex = [
     'Mix Rice',
     'Moms Kitchen'
 ];
-
 const dailyIndex = [
     'morning',
     'lunch',
     'dinner'
 ];
 
-$.getJSON('./secureKey.json', (secureData) => {
-    $.ajax(secureData.haksikMenu).done((result) => {
-        let haksik = result['haksik'];
-        let moms = result['moms'];
+function fetchMenu(menuUri) {
+    axios.request({
+        method: 'GET',
+        url: menuUri,
+        headers: {'Content-Type': 'application/json'},
+    }).then((response) => {
+        const menuData = response.data;
+        let haksik = menuData['haksik'];
+        let moms = menuData['moms'];
         let kotae = haksik.slice(0, 3);
         haksik = haksik.slice(3, haksik.length);
         console.log(parseMenu(haksikIndex[0], kotae, true));
         console.log(parseMenu(haksikIndex.slice(1, 6), haksik));
         console.log(parseMenu(haksikIndex[6], moms, true));
     });
-});
+}
 
 
 function parseMenu(id, menuList, isDaily = false) {
@@ -55,4 +63,7 @@ function parseMenu(id, menuList, isDaily = false) {
     return menuJson;
 }
 
-function exportJson(isDaily = false) { }
+export function exportJson() {
+    const secureData = JSON.parse(fs.readFileSync('./api/secureKey.json', 'utf-8'));
+    fetchMenu(secureData.haksikMenu);
+}
