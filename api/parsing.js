@@ -55,7 +55,7 @@ function parseMenu(id, menuList, isDaily = false) {
             menuJson[id[index]] = { dailyMeal: isDaily };
             const menuKor = menuList[index]['menu_kor'];
             if (menuKor.includes('-운영없음-'))
-                menuJson[id[index]].menu = null;
+                menuJson[id[index]].menu = [];
             else {
                 const menuStr = menuKor.replace('-원산지: 메뉴게시판 참조-', '').trim();
                 const haksikList = menuStr.split('\r\n');

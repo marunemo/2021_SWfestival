@@ -1,19 +1,29 @@
 
-$.getJSON('./resource/hakgwanMenu.json', menu => addItems('haksik', menu['hakgwan']))
-$.getJSON('./resource/momsMenu.json', menu => addItems('moms', menu['Moms Kitchen']))
-$.getJSON('./resource/loungeMenu.json', menu => addItems('lounge', menu['Handong Lounge']))
-$.getJSON('./resource/graceMenu.json', menu => addItems('grace', menu['The Grace Table']))
+const haksikIndex = [
+    'Korean Table',
+    'Fry Fry',
+    'Noodle Road',
+    'Hao',
+    'Grace Garden',
+    'Mix Rice'
+];
 
-function addItems(id, menuList) {
-    if(menuList['dailyMeal']) {
-        menuList['morning']['menu'].forEach((menu) => appendMenu(id, '아침', menu));
-        menuList['lunch']['menu'].forEach((menu) => appendMenu(id, '점심', menu));
-        menuList['dinner']['menu'].forEach((menu) => appendMenu(id, '저녁', menu));
+$.getJSON('./resource/hakgwanMenu.json', menu => {
+    for (const index of haksikIndex)
+        addItems('haksik', index, menu[index]);
+})
+$.getJSON('./resource/momsMenu.json', menu => addItems('moms', '맘스 키친', menu['Moms Kitchen']))
+$.getJSON('./resource/loungeMenu.json', menu => addItems('lounge', '한동 라운지', menu['Handong Lounge']))
+$.getJSON('./resource/graceMenu.json', menu => addItems('grace', '더 그레이스 테이블', menu['The Grace Table']))
+
+function addItems(id, restName, menuList) {
+    if (menuList['dailyMeal']) {
+        menuList['morning']['menu'].forEach((menu) => appendMenu(id, restName + ' - 아침', menu));
+        menuList['lunch']['menu'].forEach((menu) => appendMenu(id, restName + ' - 점심', menu));
+        menuList['dinner']['menu'].forEach((menu) => appendMenu(id, restName + ' - 저녁', menu));
     }
     else {
-        menuList.forEach((menu, i) => {
-            parseMenu(id, menu, i);
-        });
+        appendMenu(id, restName, menuList['menu'])
     }
 }
 
