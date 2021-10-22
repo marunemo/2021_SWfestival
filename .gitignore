@@ -4,6 +4,7 @@ secureKey.json
 
 # For management
 public/resource/
+resource.zip
 
 # Created by https://www.toptal.com/developers/gitignore/api/node
 # Edit at https://www.toptal.com/developers/gitignore?templates=node

@@ -6,4 +6,4 @@ const app = express();
 app.use(express.static('public'));
 getApiJson();
 
-app.listen(80, () => console.log('porting on http(80)'));
+app.listen(8080, () => console.log('porting on 8080'));
