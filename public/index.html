@@ -13,10 +13,12 @@
 </head>
 <body>
     <div>
-        <button class="dropButton" onclick="dropDownVisible('haksik')">학교 식당</button>
-        <button class="dropButton" onclick="dropDownVisible('moms')">맘스 키친</button>
-        <button class="dropButton" onclick="dropDownVisible('lounge')">한동 라운지</button>
-        <button class="dropButton" onclick="dropDownVisible('grace')">그레이스 더 테이블</button>
+        <div class="buttonGroup">
+            <button class="dropButton" onclick="dropDownVisible('haksik')">학교 식당</button>
+            <button class="dropButton" onclick="dropDownVisible('moms')">맘스 키친</button>
+            <button class="dropButton" onclick="dropDownVisible('lounge')">한동 라운지</button>
+            <button class="dropButton" onclick="dropDownVisible('grace')">그레이스 더 테이블</button>
+        </div>
         <table id="haksik" class="menuTable invisible"></table>
         <table id="moms" class="menuTable invisible"></table>
         <table id="lounge" class="menuTable invisible"></table>
