@@ -18,21 +18,23 @@ $.getJSON('./resource/graceMenu.json', menu => addItems('grace', '더 그레이�
 
 function addItems(id, restName, menuList) {
 	if (menuList['dailyMeal']) {
+		$(`#${id}`).append(`<tr><td class="haksikTitle">${restName}</td></tr>`);
 		if (restName === 'Korean Table') {
-			appendMenu(id, restName + ' - 아침', menuList['morning']['menu']);
-			appendMenu(id, restName + ' - 점심', menuList['lunch']['menu']);
-			appendMenu(id, restName + ' - 저녁', menuList['dinner']['menu']);
+			appendMenu(id, menuList['morning']['menu']);
+			appendMenu(id, menuList['lunch']['menu']);
+			appendMenu(id, menuList['dinner']['menu']);
 		} else {
-			menuList['morning']['menu'].forEach((menu) => appendMenu(id, restName + ' - 아침', menu));
-			menuList['lunch']['menu'].forEach((menu) => appendMenu(id, restName + ' - 점심', menu));
-			menuList['dinner']['menu'].forEach((menu) => appendMenu(id, restName + ' - 저녁', menu));
+			menuList['morning']['menu'].forEach((menu) => appendMenu(id, menu));
+			menuList['lunch']['menu'].forEach((menu) => appendMenu(id, menu));
+			menuList['dinner']['menu'].forEach((menu) => appendMenu(id, menu));
 		}
 	}
 	else {
-		menuList['menu'].forEach(menu => appendMenu(id, restName, menu));
+		$(`#${id}`).append(`<tr><td class="haksikTitle">${restName}</td></tr>`);
+		menuList['menu'].forEach(menu => appendMenu(id, menu));
 	}
 }
 
-function appendMenu(id, title, menu) {
-	$(`#${id}`).append(`<tr><td class="haksikTitle">${title}</td><td class="haksikList">${menu}</td></tr>`);
+function appendMenu(id, menu) {
+	$(`#${id}`).append(`<tr><td class="haksikList">${menu}</td></tr>`);
 }
