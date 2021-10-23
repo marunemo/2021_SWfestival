@@ -14,3 +14,14 @@
     padding: 5px 10px;
     font-size: 12pt;
 }
+
+.dropButton {
+    width: 20%;
+    border: 1px solid;
+    padding: 5px 10px;
+    font-size: 12pt;
+}
+
+.invisible {
+    display: none;
+}
