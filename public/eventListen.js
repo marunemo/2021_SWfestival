@@ -1,6 +1,10 @@
 function dropDownVisible(id) {
-  clearDropDown();
-  $(`#${id}`).removeClass('invisible');
+  if ($(`#${id}`).hasClass('invisible')) {
+    clearDropDown();
+    $(`#${id}`).removeClass('invisible');
+  } else {
+    clearDropDown();
+  }
 }
 
 function clearDropDown() {
