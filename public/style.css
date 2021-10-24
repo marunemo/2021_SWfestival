@@ -47,6 +47,12 @@
     height: 25px;
 }
 
+.ratingImg {
+    width: 25px;
+    height: 25px;
+    color: yellow;
+}
+
 .commentSpan {
     float: right;
 }
