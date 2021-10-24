@@ -15,7 +15,11 @@
 .haksikList {
     border: 1px solid;
     padding: 8px 15px;
+}
+
+.haksikMenu {
     font-size: 12pt;
+    display: inline;
 }
 
 .buttonGroup {
@@ -37,4 +41,13 @@
 
 .invisible {
     display: none;
+}
+
+.commentImg {
+    width: 25px;
+    height: 25px;
+}
+
+.commentSpan {
+    float: right;
 }

@@ -36,5 +36,10 @@ function addItems(id, restName, menuList) {
 }
 
 function appendMenu(id, menu) {
-  $(`#${id}`).append(`<tr><td class="haksikList">${menu}</td></tr>`);
+  let menuElement = `<td class="haksikList"><p class="haksikMenu">${menu}</p>`;
+  menuElement += `<span class="commentSpan">`
+  menuElement += `<img class="commentImg" src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/000000/external-comment-chat-flatart-icons-outline-flatarticons.png"/>`
+  menuElement += `</span>`
+  menuElement += `</td>`;
+  $(`#${id}`).append(`<tr>${menuElement}</tr>`);
 }
