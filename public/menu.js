@@ -36,12 +36,15 @@ function addItems(id, restName, menuList) {
 }
 
 function appendMenu(id, menu) {
-  let menuElement = `<td class="haksikList"><p class="haksikMenu">${menu}`;
-  menuElement += `<span class="commentSpan">`
-  menuElement += `<img class="ratingImg" src="https://img.icons8.com/ios-glyphs/30/fde047/star--v1.png"/>`
-  menuElement += `${0.0} | `
-  menuElement += `<img class="commentImg" src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/4aa9ff/external-comment-chat-flatart-icons-outline-flatarticons.png"/>`
+  let menuElement = `<td class="haksikList">`
+  menuElement += `<span class="haksikMenu">`
+  menuElement += `  ${menu}`;
+  menuElement += `  <span class="commentSpan">`
+  menuElement += `    <img class="ratingImg" src="https://img.icons8.com/ios-glyphs/30/fde047/star--v1.png"/>`
+  menuElement += `    ${0.0} | `
+  menuElement += `    <img class="commentImg" src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/4aa9ff/external-comment-chat-flatart-icons-outline-flatarticons.png"/>`
+  menuElement += `  </span>`
   menuElement += `</span>`
-  menuElement += `</p></td>`;
+  menuElement += `</td>`;
   $(`#${id}`).append(`<tr>${menuElement}</tr>`);
 }

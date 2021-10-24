@@ -45,14 +45,16 @@
 .commentImg {
     width: 25px;
     height: 25px;
+    margin-left: 10pt;
 }
 
 .ratingImg {
     width: 25px;
     height: 25px;
-    color: yellow;
+    margin-right: 3pt;
 }
 
 .commentSpan {
     float: right;
+    font-size: 12pt;
 }
