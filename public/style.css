@@ -12,6 +12,19 @@
     font-weight: bold;
 }
 
+.dailyButtonGroup {
+    float: right;
+}
+
+.dailyButton {
+    width: 25pt;
+    height: 25pt;
+    border-radius: 100%;
+    padding: 10px;
+    margin-right: 10px;
+    background-color: #eff6ff;
+}
+
 .haksikList {
     border: 1px solid;
     padding: 8px 15px;

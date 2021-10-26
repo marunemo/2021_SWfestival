@@ -19,9 +19,11 @@ $.getJSON('./resource/graceMenu.json', menu => addItems('grace', '더 그레이�
 function addItems(id, restName, menuList) {
   if (menuList['dailyMeal']) {
     let dailyHeader = restName;
-    dailyHeader += `<img class="dailyButton" src="https://img.icons8.com/ios/64/fcd34d/sunrise--v2.png"/>`;
+    dailyHeader += `<span class="dailyButtonGroup">`;
+    dailyHeader += `<img class="dailyButton" src="https://img.icons8.com/windows/64/e879f9/sunrise--v2.png"/>`;
     dailyHeader += `<img class="dailyButton" src="https://img.icons8.com/ios/64/b45309/sun--v1.png"/>`;
     dailyHeader += `<img class="dailyButton" src="https://img.icons8.com/external-bearicons-glyph-bearicons/64/22d3ee/external-moon-halloween-bearicons-glyph-bearicons.png"/>`;
+    dailyHeader += `</span>`;
     $(`#${id}`).append(`<tr><td class="haksikTitle">${dailyHeader}</td></tr>`);
     if (restName === 'Korean Table') {
       appendMenu(id, menuList['morning']['menu']);
