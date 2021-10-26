@@ -21,21 +21,21 @@ function addItems(id, restName, menuList) {
     let dailyHeader = restName;
     dailyHeader += `<span class="dailyButtonGroup">`;
     if (menuList['morning']['menu'].length)
-      dailyHeader += `<img class="dailyButton" src="https://img.icons8.com/windows/64/e879f9/sunrise--v2.png"/>`;
+      dailyHeader += `<img class="dailyButton" src="https://img.icons8.com/windows/64/e879f9/sunrise--v2.png" onclick="dailyFilter('morning')" />`;
     if (menuList['lunch']['menu'].length)
-      dailyHeader += `<img class="dailyButton" src="https://img.icons8.com/ios/64/b45309/sun--v1.png"/>`;
+      dailyHeader += `<img class="dailyButton" src="https://img.icons8.com/ios/64/b45309/sun--v1.png" onclick="dailyFilter('lunch')" />`;
     if (menuList['dinner']['menu'].length)
-      dailyHeader += `<img class="dailyButton" src="https://img.icons8.com/external-bearicons-glyph-bearicons/64/22d3ee/external-moon-halloween-bearicons-glyph-bearicons.png"/>`;
+      dailyHeader += `<img class="dailyButton" src="https://img.icons8.com/external-bearicons-glyph-bearicons/64/22d3ee/external-moon-halloween-bearicons-glyph-bearicons.png" onclick="dailyFilter('dinner')" />`;
     dailyHeader += `</span>`;
     $(`#${id}`).append(`<tr><td class="haksikTitle">${dailyHeader}</td></tr>`);
     if (restName === 'Korean Table') {
-      appendMenu(id, menuList['morning']['menu']);
-      appendMenu(id, menuList['lunch']['menu']);
-      appendMenu(id, menuList['dinner']['menu']);
+      appendMenu(id, menuList['morning']['menu'], 0.0, 'morning');
+      appendMenu(id, menuList['lunch']['menu'], 0.0, 'lunch');
+      appendMenu(id, menuList['dinner']['menu'], 0.0, 'dinner');
     } else {
-      menuList['morning']['menu'].forEach((menu) => appendMenu(id, menu));
-      menuList['lunch']['menu'].forEach((menu) => appendMenu(id, menu));
-      menuList['dinner']['menu'].forEach((menu) => appendMenu(id, menu));
+      menuList['morning']['menu'].forEach((menu) => appendMenu(id, menu, 0.0, 'morning'));
+      menuList['lunch']['menu'].forEach((menu) => appendMenu(id, menu, 0.0, 'lunch'));
+      menuList['dinner']['menu'].forEach((menu) => appendMenu(id, menu, 0.0, 'dinner'));
     }
   }
   else {
@@ -44,8 +44,12 @@ function addItems(id, restName, menuList) {
   }
 }
 
-function appendMenu(id, menu, menuRating = 0.0) {
-  let menuElement = `<td class="haksikList">`
+function appendMenu(id, menu, menuRating = 0.0, dailyClass = "") {
+  let menuElement;
+  if (dailyClass)
+    menuElement += `<td class="haksikList dailyMenu ${dailyClass} invisible"`
+  else
+    menuElement += `<td class="haksikList">`
   menuElement += `<span class="haksikMenu">`
   menuElement += `  ${menu}`;
   menuElement += `  <span class="commentSpan">`
@@ -56,4 +60,13 @@ function appendMenu(id, menu, menuRating = 0.0) {
   menuElement += `</span>`
   menuElement += `</td>`;
   $(`#${id}`).append(`<tr>${menuElement}</tr>`);
+}
+
+function dailyFilter(classId) {
+  if ($(`.${classId}`).hasClass('invisible')) {
+    $('.dailyMenu').addClass('invisible');
+    $(`.${classId}`).removeClass('invisible');
+  } else {
+    $('.dailyMenu').addClass('invisible');
+  }
 }
