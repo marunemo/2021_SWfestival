@@ -18,10 +18,12 @@ $.getJSON('./resource/graceMenu.json', menu => addItems('grace', '더 그레이�
 
 function addItems(id, restName, menuList) {
   if (menuList['dailyMeal']) {
-    $(`#${id}`).append(`<tr><td class="haksikTitle">${restName}`);
-    $(`#${id}`).append(`<img src="https://img.icons8.com/ios/64/000000/sunrise--v2.png"/>`);
-    $(`#${id}`).append(`<img src="https://img.icons8.com/ios/64/000000/sun--v1.png"/>`);
-    $(`#${id}`).append(`<img src="https://img.icons8.com/external-bearicons-glyph-bearicons/64/000000/external-moon-halloween-bearicons-glyph-bearicons.png"/>`);
+    $(`#${id}`).append(`<tr><td class="haksikHeader">`);
+    $(`#${id}`).append(`<span class="haksikTitle">${restName}`);
+    $(`#${id}`).append(`<img src="https://img.icons8.com/ios/64/fcd34d/sunrise--v2.png" />`);
+    $(`#${id}`).append(`<img src="https://img.icons8.com/ios/64/b45309/sun--v1.png" />`);
+    $(`#${id}`).append(`<img src="https://img.icons8.com/external-bearicons-glyph-bearicons/64/22d3ee/external-moon-halloween-bearicons-glyph-bearicons.png" />`);
+    $(`#${id}`).append(`</span> `);
     $(`#${id}`).append(`</td></tr>`);
     if (restName === 'Korean Table') {
       appendMenu(id, menuList['morning']['menu']);
@@ -34,7 +36,7 @@ function addItems(id, restName, menuList) {
     }
   }
   else {
-    $(`#${id}`).append(`<tr><td class="haksikTitle">${restName}</td></tr>`);
+    $(`#${id}`).append(`<tr><td class="haksikHeader"><span class="haksikTitle">${restName}</span></td></tr>`);
     menuList['menu'].forEach(menu => appendMenu(id, menu));
   }
 }
