@@ -2,15 +2,11 @@
     width: 100%;
 }
 
-.haksikHeader {
+.haksikTitle {
     background-color: #99f6e4;
     width: 100%;
     border: 1px solid;
     padding: 10px 20px;
-    text-align: center;
-}
-
-.haksikTitle {
     text-align: center;
     font-size: 16pt;
     font-weight: bold;
