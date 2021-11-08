@@ -12,6 +12,10 @@
     font-weight: bold;
 }
 
+.dailyTitle {
+    height: 45px;
+}
+
 .dailyButtonGroup {
     right: 3%;
     float: right;
@@ -50,7 +54,7 @@
     border-radius: 30px;
     padding: 5px 10px;
     margin: 5px 10px;
-    font-size: 16pt;
+    font-size: 14pt;
     font-weight: bold;
 }
 

@@ -27,7 +27,7 @@ function addItems(id, restName, menuList) {
     if (menuList['dinner']['menu'].length)
       dailyHeader += `<img class="dailyButton" src="https://img.icons8.com/external-bearicons-glyph-bearicons/64/22d3ee/external-moon-halloween-bearicons-glyph-bearicons.png" onclick="dailyFilter('dinner')" />`;
     dailyHeader += `</span>`;
-    $(`#${id}`).append(`<tr><td class="haksikTitle">${dailyHeader}</td></tr>`);
+    $(`#${id}`).append(`<tr><td class="haksikTitle dailyTitle">${dailyHeader}</td></tr>`);
     if (restName === 'Korean Table') {
       appendMenu(id, menuList['morning']['menu'], 0.0, 'morning');
       appendMenu(id, menuList['lunch']['menu'], 0.0, 'lunch');
