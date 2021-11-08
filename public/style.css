@@ -13,7 +13,9 @@
 }
 
 .dailyButtonGroup {
+    right: 3%;
     float: right;
+    position: absolute;
 }
 
 .dailyButton {
@@ -28,6 +30,7 @@
 .haksikList {
     border: 1px solid;
     padding: 8px 15px;
+    align-items: center;
 }
 
 .haksikMenu {
